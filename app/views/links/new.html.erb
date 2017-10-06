@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h1>Sign Up</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-4">
+
+  <%= form_tag("/links", method: 'post') do  %>
+
+    <div class="form-group">
+      <%= label_tag :redirect, "What would you like a link to?" %>
+      <%= text_field_tag :redirect, "", autofocus: true, class: 'form-control' %>
+    </div>
+
+    <%= submit_tag "Sign Me Up", class: 'btn btn-success btn-lg'%>
+    or
+    <%= link_to "Cancel", root_url %>
+
+  <% end %>
+
+  </div>
+</div>
