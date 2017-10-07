@@ -1,23 +1,56 @@
 <div class="page-header">
-  <h1>My Account</h1>
+  <ul class="list-inline">
+  <li><h1><%= @user.name %>'s Account</h1></li>
+    <li>
+      <%= form_tag("/users/#{@user.id}/edit", method: 'get') do  %>
+        <%= submit_tag "Edit My Account", class: 'btn btn-info btn-lg'%>
+      <% end %>
+    </li>
+    <li>
+      <%= form_tag("/users/#{@user.id}", method: 'delete') do  %>
+        <%= submit_tag "Delete My Account", class: 'btn btn-danger btn-lg'%>
+      <% end %>
+    </li>
+  </ul>
 </div>
-
-<% user = User.first # TODO: fix this %>
 
 <div class="row">
   <div class="col-sm-12">
 
     <p class="lead">
-      <strong>Name:</strong> <%= user.name %>
+      <strong>Name:</strong> <%= @user.name %>
     </p>
 
     <p class="lead">
-      <strong>Email Address:</strong> <%= user.email %>
+      <strong>Username:</strong> <%= @user.username %>
     </p>
 
     <p class="lead">
-      <strong>Password:</strong> <%= user.password %>
+      <strong>Email Address:</strong> <%= @user.email %>
     </p>
 
+  </div>
+
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Link To</th>
+          <th>Zink Link</th>
+          <th>Number of Uses</th>
+          <th>Time of Last Use</th>
+        </tr>
+      </thead>
+    <% @user.links.each do | link | %>
+      <tbody>
+        <tr>
+          <td><%= link.redirect %></td>
+          <td>localhost:3000/z/<%= link.uuid %></td>
+          <td><%= link.count %></td>
+          <td><%= link.last %></td>
+        </tr>
+      </tbody>
+    <% end %>
+    </table>
   </div>
 </div>

@@ -51,18 +51,11 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find_by(id: session[:user_id])
-    if @user.blank? && @user.admin == nil
+    if @user.blank?
       redirect_to root_url, notice: "You are not authorized to view that page."
     end
-    if params['student_id'] != nil
-      @user = User.find_by(id: params['student_id'])
-      @user.destroy
-      @user = User.find_by(id: session[:user_id])
-      redirect_to "/users/#{@user.id}", notice: "Student profile has been removed."
-    elsif params['is_student']
-      redirect_to root_url, notice: "You cannot delete this account."
-    else
-      redirect_to root_url, notice: "Sorry to see you go, but thanks for watching with us!"
+    if @user.destroy
+      redirect_to root_url, notice: "Sorry to see you go, but thanks for zinking with us!"
     end
   end
 

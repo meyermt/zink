@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  root 'sessions#new'
+  root 'intro#index'
 
   # Sessions
 
@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   post '/links' => 'links#create'
 
   get '/links/:uuid' => 'links#show'
+
+  get '/z/:uuid' => 'links#show'
 
   delete '/links/:id' => 'links#destroy'
 

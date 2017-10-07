@@ -3,6 +3,7 @@ Link
   redirect: text
   count: integer
   last: text
+  user_id: integer
 
 User
   name: text

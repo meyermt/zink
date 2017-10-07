@@ -1,0 +1,45 @@
+<!-- Header -->
+<a name="about"></a>
+<div class="intro-header">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-message">
+                    <h1>zink</h1>
+                    <ul class="list-inline intro-social-buttons">
+                      <a href="/users/new" class="btn btn-default btn-lg"><span>Start Creating Zinks</span></a>
+                      <a href="/users/new" class="btn btn-default btn-lg"><span>Learn More</span></a>
+                      <% if session["user_id"].present? %>
+                      <% user = User.find_by(id: session["user_id"]) %>
+                        <a href="/users/#{user.id}" class="btn btn-default btn-lg"><span>My Account</span></a>
+                      <% else %>
+                        <a href="/sessions/new" class="btn btn-default btn-lg"><span>Sign In</span></a>
+                      <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <div class="content-section-a">
+
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-5 col-sm-6">
+                  <div class="clearfix"></div>
+                  <h2 class="section-heading">Just type in a link.</h2>
+                  <p class="lead">1. Create an account. <br>2. Type in a long link.<br>3. Get back a shorter link that you can use!</p>
+              </div>
+              <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+              </div>
+          </div>
+
+      </div>
+    <!-- /.container -->
+
+    </div>
+
+</div>
