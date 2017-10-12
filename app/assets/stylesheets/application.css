@@ -68,3 +68,16 @@
     background: url(zink-bg.jpg) no-repeat center center;
     background-size: cover;
 }
+
+.ct-label {
+  font-size: 12px;
+  color: black;
+}
+
+/* Use this selector to override bar styles on bar charts. Bars are also strokes so you have maximum freedom in styling them. */
+.ct-series-a .ct-bar {
+  /* Colour of your bars */
+  stroke: #5cb85c;
+  /* The width of your bars */
+  stroke-width: 40px;
+}

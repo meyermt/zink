@@ -4,11 +4,19 @@
 
 <h2>How Does it Work?</h2>
 <div class="row">
-  <div class="col-lg-8">
+  <div class="col-lg-8  ">
     <p>Zink is a 100% free way to create shorter links and (maybe more importantly) track important statistics based on the traffic that visits those links.
     Using Zink, you'll be able to start developing rich metrics on the visitors that use the links you provide! And the links are short!</p>
   </div>
 </div>
+
+<% if  @user.errors.full_messages.any? %>
+  <ul class="text-danger">
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <h2>Sign Me Up!</h2>
 <div class="row">
@@ -22,13 +30,18 @@
     </div>
 
     <div class="form-group">
+      <%= label_tag :username, "Pick a username:" %>
+      <%= text_field_tag :username, "", class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
       <%= label_tag :email, "Email Address" %>
       <%= text_field_tag :email, "", class: 'form-control' %>
     </div>
 
     <div class="form-group">
       <%= label_tag :password, "Pick a Password" %>
-      <%= text_field_tag :password, "", class: 'form-control' %>
+      <%= password_field_tag :password, "", class: 'form-control' %>
     </div>
 
     <%= submit_tag "Sign Me Up", class: 'btn btn-success btn-lg'%>
